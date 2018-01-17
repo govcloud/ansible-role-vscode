@@ -1,0 +1,13 @@
+---
+galaxy_info:
+  author: William Hearn
+  description: Install and configures Microsoft Visual Studio code
+  license: GPLV3
+  min_ansible_version: 2.0
+  platforms:
+  - name: Ubuntu
+    versions:
+      - all
+  galaxy_tags:
+    - vscode
+    - ubuntu
