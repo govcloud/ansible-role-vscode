@@ -1,32 +1,6 @@
-# vscode not working on Ubuntu / XRDP
-# https://github.com/Microsoft/vscode/issues/3451
+---
+- include: el.yml
+  when: ansible_os_family == 'RedHat'
 
-- name: ensure https transport
-  package:
-    name: apt-transport-https
-    state: present
-    update_cache: true
-
-- name: add apt key
-  apt_key:
-    url: https://packages.microsoft.com/keys/microsoft.asc
-    state: present
-
-- name: add apt repo
-  apt_repository:
-    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
-    state: present
-
-- name: install vscode
-  package:
-    name: code
-    state: present
-
-- name: copy system libraries for vscode
-  copy:
-    src: /usr/lib/x86_64-linux-gnu/libxcb.so.1
-    dest: /usr/share/code/libxcb.so.1
-
-- name: patch system libraries for vscode
-  become: yes
-  command: sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/share/code/libxcb.so.1
+- include: debian.yml
+  when: ansible_os_family == 'Debian'

@@ -3,6 +3,8 @@ services: docker
 
 env:
   # Defaults.
+  - distro: centos7
+    test_idempotence: false
   - distro: ubuntu1604
     test_idempotence: false
 
