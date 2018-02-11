@@ -1,6 +1,6 @@
 ---
-- include: el.yml
+- include: RedHat.yml
   when: ansible_os_family == 'RedHat'
 
-- include: debian.yml
+- include: Debian.yml
   when: ansible_os_family == 'Debian'
