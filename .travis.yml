@@ -5,8 +5,6 @@ env:
   # Defaults.
   - distro: centos7
     test_idempotence: false
-  - distro: ubuntu1604
-    test_idempotence: false
 
 script:
   # Configure test script so we can run extra tests after playbook is run.
